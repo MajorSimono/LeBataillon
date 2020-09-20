@@ -4,7 +4,7 @@ namespace LeBataillon.Database.Models
 {
     public class Game
     {
-               public Game()
+        public Game()
         {
 
 
@@ -14,22 +14,25 @@ namespace LeBataillon.Database.Models
         {
             this.Id = Id;
             this.GameDateTime = GameDateTime;
-            this.TeamDefendant = TeamDefendant;
-            this.TeamAttacker = TeamAttacker;
+            this.TeamDefendantId = TeamDefendant;
+            this.TeamAttackerId = TeamAttacker;
 
-        } 
+        }
 
-                public void EditFrom(Game g)
+        public void EditFrom(Game g)
         {
             this.Id = g.Id;
             this.GameDateTime = g.GameDateTime;
-            this.TeamDefendant = g.TeamDefendant;
-            this.TeamAttacker = g.TeamAttacker;
+            this.TeamDefendantId = g.TeamDefendantId;
+            this.TeamAttackerId = g.TeamAttackerId;
 
-        } 
-            public int Id { get; set; }
+        }
+        public int Id { get; set; }
         public DateTime GameDateTime { get; set; }
-        public int TeamDefendant { get; set; }
-        public int TeamAttacker { get; set; }
+        public int TeamDefendantId { get; set; }
+        public int TeamAttackerId { get; set; }
+
+        public virtual Team TeamAttacker { get; set; }
+        public virtual Team TeamDefendant { get; set; }
     }
 }

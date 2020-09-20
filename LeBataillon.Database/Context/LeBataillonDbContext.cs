@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LeBataillon.Database.Initializer.DataFixtures;
 using LeBataillon.Database.Models;
@@ -43,6 +44,29 @@ namespace LeBataillon.Database.Context
 
             }
             modelBuilder.Entity<Team>().HasData(teams);
+
+            var games = new List<Game>();
+
+            for (int i = 1; i < 50; i++)
+            {
+                var today = DateTime.Now;
+                var gameday = today.AddDays(i);
+                var nombre = i * 1000;
+                var equipe1 = SampleData.GenerateInteger(nombre + 9, 1, 9);
+                var equipe2 = SampleData.GenerateInteger(nombre + 9, 1, 9);
+                if (equipe1 == equipe2 && equipe2 != 9)
+                {
+                    equipe2 = equipe2 + 1;
+                }
+                else if (equipe1 == equipe2 && equipe2 == 9)
+                {
+                    equipe2 = equipe2 - 1;
+                }
+
+                games.Add(new Game(i, gameday, equipe1, equipe2));
+
+            }
+            modelBuilder.Entity<Game>().HasData(games);
         }
     }
 }
