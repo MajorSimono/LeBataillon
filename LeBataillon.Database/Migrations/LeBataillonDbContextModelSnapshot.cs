@@ -37,349 +37,349 @@ namespace LeBataillon.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game");
+                    b.ToTable("Games");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            GameDateTime = new DateTime(2020, 9, 21, 14, 22, 55, 851, DateTimeKind.Local).AddTicks(1544),
+                            GameDateTime = new DateTime(2020, 9, 21, 16, 52, 2, 648, DateTimeKind.Local).AddTicks(8442),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 2,
-                            GameDateTime = new DateTime(2020, 9, 22, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1557),
+                            GameDateTime = new DateTime(2020, 9, 22, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9298),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 3,
-                            GameDateTime = new DateTime(2020, 9, 23, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1719),
+                            GameDateTime = new DateTime(2020, 9, 23, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9425),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 4,
-                            GameDateTime = new DateTime(2020, 9, 24, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1758),
+                            GameDateTime = new DateTime(2020, 9, 24, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9464),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 5,
-                            GameDateTime = new DateTime(2020, 9, 25, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1792),
+                            GameDateTime = new DateTime(2020, 9, 25, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9498),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 6,
-                            GameDateTime = new DateTime(2020, 9, 26, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1829),
+                            GameDateTime = new DateTime(2020, 9, 26, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9576),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 7,
-                            GameDateTime = new DateTime(2020, 9, 27, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1862),
+                            GameDateTime = new DateTime(2020, 9, 27, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9609),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 8,
-                            GameDateTime = new DateTime(2020, 9, 28, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1896),
+                            GameDateTime = new DateTime(2020, 9, 28, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9640),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 9,
-                            GameDateTime = new DateTime(2020, 9, 29, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1929),
+                            GameDateTime = new DateTime(2020, 9, 29, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9672),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 10,
-                            GameDateTime = new DateTime(2020, 9, 30, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1961),
+                            GameDateTime = new DateTime(2020, 9, 30, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9704),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 11,
-                            GameDateTime = new DateTime(2020, 10, 1, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(1992),
+                            GameDateTime = new DateTime(2020, 10, 1, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9735),
                             TeamAttackerId = 2,
                             TeamDefendantId = 1
                         },
                         new
                         {
                             Id = 12,
-                            GameDateTime = new DateTime(2020, 10, 2, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2024),
+                            GameDateTime = new DateTime(2020, 10, 2, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9768),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 13,
-                            GameDateTime = new DateTime(2020, 10, 3, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2059),
+                            GameDateTime = new DateTime(2020, 10, 3, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9802),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 14,
-                            GameDateTime = new DateTime(2020, 10, 4, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2092),
+                            GameDateTime = new DateTime(2020, 10, 4, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9835),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 15,
-                            GameDateTime = new DateTime(2020, 10, 5, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2169),
+                            GameDateTime = new DateTime(2020, 10, 5, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9866),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 16,
-                            GameDateTime = new DateTime(2020, 10, 6, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2203),
+                            GameDateTime = new DateTime(2020, 10, 6, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9899),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 17,
-                            GameDateTime = new DateTime(2020, 10, 7, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2234),
+                            GameDateTime = new DateTime(2020, 10, 7, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9931),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 18,
-                            GameDateTime = new DateTime(2020, 10, 8, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2266),
+                            GameDateTime = new DateTime(2020, 10, 8, 16, 52, 2, 651, DateTimeKind.Local).AddTicks(9965),
                             TeamAttackerId = 2,
                             TeamDefendantId = 1
                         },
                         new
                         {
                             Id = 19,
-                            GameDateTime = new DateTime(2020, 10, 9, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2298),
+                            GameDateTime = new DateTime(2020, 10, 9, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(44),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 20,
-                            GameDateTime = new DateTime(2020, 10, 10, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2329),
+                            GameDateTime = new DateTime(2020, 10, 10, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(77),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 21,
-                            GameDateTime = new DateTime(2020, 10, 11, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2361),
+                            GameDateTime = new DateTime(2020, 10, 11, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(108),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 22,
-                            GameDateTime = new DateTime(2020, 10, 12, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2392),
+                            GameDateTime = new DateTime(2020, 10, 12, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(140),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 23,
-                            GameDateTime = new DateTime(2020, 10, 13, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2423),
+                            GameDateTime = new DateTime(2020, 10, 13, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(173),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 24,
-                            GameDateTime = new DateTime(2020, 10, 14, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2454),
+                            GameDateTime = new DateTime(2020, 10, 14, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(204),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 25,
-                            GameDateTime = new DateTime(2020, 10, 15, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2484),
+                            GameDateTime = new DateTime(2020, 10, 15, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(234),
                             TeamAttackerId = 2,
                             TeamDefendantId = 1
                         },
                         new
                         {
                             Id = 26,
-                            GameDateTime = new DateTime(2020, 10, 16, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2515),
+                            GameDateTime = new DateTime(2020, 10, 16, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(267),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 27,
-                            GameDateTime = new DateTime(2020, 10, 17, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2548),
+                            GameDateTime = new DateTime(2020, 10, 17, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(299),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 28,
-                            GameDateTime = new DateTime(2020, 10, 18, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2581),
+                            GameDateTime = new DateTime(2020, 10, 18, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(330),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 29,
-                            GameDateTime = new DateTime(2020, 10, 19, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2692),
+                            GameDateTime = new DateTime(2020, 10, 19, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(362),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 30,
-                            GameDateTime = new DateTime(2020, 10, 20, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2724),
+                            GameDateTime = new DateTime(2020, 10, 20, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(395),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 31,
-                            GameDateTime = new DateTime(2020, 10, 21, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2757),
+                            GameDateTime = new DateTime(2020, 10, 21, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(429),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 32,
-                            GameDateTime = new DateTime(2020, 10, 22, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2788),
+                            GameDateTime = new DateTime(2020, 10, 22, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(460),
                             TeamAttackerId = 2,
                             TeamDefendantId = 1
                         },
                         new
                         {
                             Id = 33,
-                            GameDateTime = new DateTime(2020, 10, 23, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2820),
+                            GameDateTime = new DateTime(2020, 10, 23, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(550),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 34,
-                            GameDateTime = new DateTime(2020, 10, 24, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2853),
+                            GameDateTime = new DateTime(2020, 10, 24, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(586),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 35,
-                            GameDateTime = new DateTime(2020, 10, 25, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2884),
+                            GameDateTime = new DateTime(2020, 10, 25, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(618),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 36,
-                            GameDateTime = new DateTime(2020, 10, 26, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2913),
+                            GameDateTime = new DateTime(2020, 10, 26, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(648),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 37,
-                            GameDateTime = new DateTime(2020, 10, 27, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2943),
+                            GameDateTime = new DateTime(2020, 10, 27, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(680),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 38,
-                            GameDateTime = new DateTime(2020, 10, 28, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(2974),
+                            GameDateTime = new DateTime(2020, 10, 28, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(710),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 39,
-                            GameDateTime = new DateTime(2020, 10, 29, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3006),
+                            GameDateTime = new DateTime(2020, 10, 29, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(743),
                             TeamAttackerId = 2,
                             TeamDefendantId = 1
                         },
                         new
                         {
                             Id = 40,
-                            GameDateTime = new DateTime(2020, 10, 30, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3037),
+                            GameDateTime = new DateTime(2020, 10, 30, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(774),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 41,
-                            GameDateTime = new DateTime(2020, 10, 31, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3100),
+                            GameDateTime = new DateTime(2020, 10, 31, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(805),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 42,
-                            GameDateTime = new DateTime(2020, 11, 1, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3134),
+                            GameDateTime = new DateTime(2020, 11, 1, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(837),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         },
                         new
                         {
                             Id = 43,
-                            GameDateTime = new DateTime(2020, 11, 2, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3164),
+                            GameDateTime = new DateTime(2020, 11, 2, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(867),
                             TeamAttackerId = 7,
                             TeamDefendantId = 6
                         },
                         new
                         {
                             Id = 44,
-                            GameDateTime = new DateTime(2020, 11, 3, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3195),
+                            GameDateTime = new DateTime(2020, 11, 3, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(897),
                             TeamAttackerId = 3,
                             TeamDefendantId = 2
                         },
                         new
                         {
                             Id = 45,
-                            GameDateTime = new DateTime(2020, 11, 4, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3226),
+                            GameDateTime = new DateTime(2020, 11, 4, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(973),
                             TeamAttackerId = 6,
                             TeamDefendantId = 5
                         },
                         new
                         {
                             Id = 46,
-                            GameDateTime = new DateTime(2020, 11, 5, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3257),
+                            GameDateTime = new DateTime(2020, 11, 5, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(1004),
                             TeamAttackerId = 9,
                             TeamDefendantId = 8
                         },
                         new
                         {
                             Id = 47,
-                            GameDateTime = new DateTime(2020, 11, 6, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3289),
+                            GameDateTime = new DateTime(2020, 11, 6, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(1035),
                             TeamAttackerId = 5,
                             TeamDefendantId = 4
                         },
                         new
                         {
                             Id = 48,
-                            GameDateTime = new DateTime(2020, 11, 7, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3318),
+                            GameDateTime = new DateTime(2020, 11, 7, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(1082),
                             TeamAttackerId = 8,
                             TeamDefendantId = 7
                         },
                         new
                         {
                             Id = 49,
-                            GameDateTime = new DateTime(2020, 11, 8, 14, 22, 55, 854, DateTimeKind.Local).AddTicks(3348),
+                            GameDateTime = new DateTime(2020, 11, 8, 16, 52, 2, 652, DateTimeKind.Local).AddTicks(1113),
                             TeamAttackerId = 4,
                             TeamDefendantId = 3
                         });
@@ -1414,7 +1414,7 @@ namespace LeBataillon.Database.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Captain")
+                    b.Property<int>("CaptainId")
                         .HasColumnType("int");
 
                     b.Property<string>("TeamName")
@@ -1422,63 +1422,74 @@ namespace LeBataillon.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Team");
+                    b.HasIndex("CaptainId");
+
+                    b.ToTable("Teams");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Captain = 10,
+                            CaptainId = 10,
                             TeamName = "Krissy"
                         },
                         new
                         {
                             Id = 2,
-                            Captain = 20,
+                            CaptainId = 20,
                             TeamName = "Pat"
                         },
                         new
                         {
                             Id = 3,
-                            Captain = 30,
+                            CaptainId = 30,
                             TeamName = "Palmira"
                         },
                         new
                         {
                             Id = 4,
-                            Captain = 40,
+                            CaptainId = 40,
                             TeamName = "Ralph"
                         },
                         new
                         {
                             Id = 5,
-                            Captain = 50,
+                            CaptainId = 50,
                             TeamName = "Arielle"
                         },
                         new
                         {
                             Id = 6,
-                            Captain = 60,
+                            CaptainId = 60,
                             TeamName = "Troy"
                         },
                         new
                         {
                             Id = 7,
-                            Captain = 70,
+                            CaptainId = 70,
                             TeamName = "Marcell"
                         },
                         new
                         {
                             Id = 8,
-                            Captain = 80,
+                            CaptainId = 80,
                             TeamName = "Vi"
                         },
                         new
                         {
                             Id = 9,
-                            Captain = 90,
+                            CaptainId = 90,
                             TeamName = "Sherise"
                         });
+                });
+
+            modelBuilder.Entity("LeBataillon.Database.Models.Team", b =>
+                {
+                    b.HasOne("LeBataillon.Database.Models.Player", "Captain")
+                        .WithMany()
+                        .HasForeignKey("CaptainId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

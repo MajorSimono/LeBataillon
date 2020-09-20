@@ -32,7 +32,5 @@ namespace LeBataillon.Database.Models
         public int TeamDefendantId { get; set; }
         public int TeamAttackerId { get; set; }
 
-        public virtual Team TeamAttacker { get; set; }
-        public virtual Team TeamDefendant { get; set; }
     }
 }

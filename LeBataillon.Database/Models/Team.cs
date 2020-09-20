@@ -2,8 +2,8 @@ namespace LeBataillon.Database.Models
 {
     public class Team
     {
-        
-         public Team()
+
+        public Team()
         {
 
 
@@ -13,20 +13,22 @@ namespace LeBataillon.Database.Models
         {
             this.Id = Id;
             this.TeamName = TeamName;
-            this.Captain = Captain;
+            this.CaptainId = Captain;
 
-        } 
+        }
 
-                public void EditFrom(Team t)
+        public void EditFrom(Team t)
         {
             this.Id = t.Id;
             this.TeamName = t.TeamName;
-            this.Captain = t.Captain;
+            this.CaptainId = t.CaptainId;
 
-        } 
-            public int Id { get; set; }
+        }
+        public int Id { get; set; }
         public string TeamName { get; set; }
-        public int Captain { get; set; }
+        public int CaptainId { get; set; }
+
+        public virtual Player Captain { get; set; }
 
     }
 }
