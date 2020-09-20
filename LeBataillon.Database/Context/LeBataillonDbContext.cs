@@ -35,6 +35,14 @@ namespace LeBataillon.Database.Context
             }
 
             modelBuilder.Entity<Player>().HasData(players);
+
+            var teams = new List<Team>();
+            for (int i = 1; i < 10; i++)
+            {
+                teams.Add(new Team(i, SampleData.GenerateName(i + 1), i * 10));
+
+            }
+            modelBuilder.Entity<Team>().HasData(teams);
         }
     }
 }
