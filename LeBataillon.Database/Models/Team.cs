@@ -9,11 +9,11 @@ namespace LeBataillon.Database.Models
 
         }
 
-        public Team(int Id, string TeamName, int Captain)
+        public Team(int Id, string TeamName, int CaptainId)
         {
             this.Id = Id;
             this.TeamName = TeamName;
-            this.CaptainId = Captain;
+            this.CaptainId = CaptainId;
 
         }
 
