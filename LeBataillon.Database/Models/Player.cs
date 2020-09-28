@@ -4,7 +4,7 @@ namespace LeBataillon.Database.Models
 {
     public class Player
     {
-       public Player()
+        public Player()
         {
 
 
@@ -20,9 +20,9 @@ namespace LeBataillon.Database.Models
             this.LastName = LastName;
             this.Level = Level;
 
-        } 
+        }
 
-                public void EditFrom(Player p)
+        public void EditFrom(Player p)
         {
             this.Id = p.Id;
             this.NickName = p.NickName;
@@ -32,13 +32,30 @@ namespace LeBataillon.Database.Models
             this.LastName = p.LastName;
             this.Level = p.Level;
 
-        } 
-            public int Id { get; set; }
+        }
+        [Key]
+        public int Id { get; set; }
+
+        [Display(Name = "NickName du joueur ")]
         public string NickName { get; set; }
+        [Display(Name = "Email du joueur ")]
+        [Required(ErrorMessage = "Email requis")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Display(Name = "Téléphone du joueur ")]
+        [Phone(ErrorMessage = "Il faut que le téléphone soit de la forme ###-###-####")]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
+        [Display(Name = "Prenom du joueur ")]
+        [Required(ErrorMessage = "Prenom requis")]
+
         public string FirstName { get; set; }
+
+        [Display(Name = "Nom du joueur ")]
+        [Required(ErrorMessage = "Nom requis")]
         public string LastName { get; set; }
+        [Display(Name = "level du joueur ")]
         public PlayerLevel Level { get; set; }
 
     }

@@ -7,40 +7,39 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LeBataillon.Database.Context;
 using LeBataillon.Database.Models;
+using LeBataillon.Database.Repository;
+using LeBataillon.Database.Exceptions;
 
 namespace LeBataillon.Web.Controllers
 {
     public class GameController : Controller
     {
-        private readonly LeBataillonDbContext _context;
+        private readonly ILeBataillonRepo _repo;
 
-        public GameController(LeBataillonDbContext context)
+        public GameController(ILeBataillonRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Game
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Games.ToListAsync());
+            return View(_repo.GetAllGames());
         }
 
         // GET: Game/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
-            if (id == null)
+            try
             {
+                var game = this._repo.GetGameById(id ?? 0);
+                return View(game);
+            }
+            catch (NotFoundException)
+            {
+
                 return NotFound();
             }
-
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-
-            return View(game);
         }
 
         // GET: Game/Create
@@ -54,31 +53,36 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,GameDateTime,TeamDefendantId,TeamAttackerId")] Game game)
+        public IActionResult Create([Bind("Id,GameDateTime,TeamDefendantId,TeamAttackerId")] Game game)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(game);
-                await _context.SaveChangesAsync();
+                _repo.Add(game);
                 return RedirectToAction(nameof(Index));
+            }
+            catch (LeBataillonRepoException e)
+            {
+
+                this.ModelState.AddModelError(e.Property, e.Message);
+
             }
             return View(game);
         }
 
-        // GET: Game/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var game = await _context.Games.FindAsync(id);
-            if (game == null)
+        // GET: Game/Edit/5
+        public IActionResult Edit(int? id)
+        {
+            try
             {
+                var game = this._repo.GetGameById(id);
+                return View(game);
+            }
+            catch (NotFoundException)
+            {
+
                 return NotFound();
             }
-            return View(game);
         }
 
         // POST: Game/Edit/5
@@ -86,68 +90,67 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,GameDateTime,TeamDefendantId,TeamAttackerId")] Game game)
+        public IActionResult Edit(int id, [Bind("Id,GameDateTime,TeamDefendantId,TeamAttackerId")] Game game)
         {
-            if (id != game.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(game);
-                    await _context.SaveChangesAsync();
+                    _repo.Edit(game);
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (NotFoundException)
                 {
-                    if (!GameExists(game.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                catch (LeBataillonRepoException e)
+                {
+                    this.ModelState.AddModelError(e.Property, e.Message);
+                }
             }
             return View(game);
         }
 
         // GET: Game/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null)
+            try
+            {
+                var game = this._repo.GetGameById(id);
+                return View(game);
+            }
+            catch (NotFoundException)
             {
                 return NotFound();
-            }
 
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (game == null)
-            {
-                return NotFound();
             }
-
-            return View(game);
         }
 
         // POST: Game/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var game = await _context.Games.FindAsync(id);
-            _context.Games.Remove(game);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _repo.RemoveGame(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (NotFoundException)
+            {
+
+                return NotFound();
+
+            }
+            catch (LeBataillonRepoException e)
+            {
+                this.ModelState.AddModelError(e.Property, e.Message);
+            }
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GameExists(int id)
-        {
-            return _context.Games.Any(e => e.Id == id);
-        }
+
     }
 }

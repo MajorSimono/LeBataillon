@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using LeBataillon.Database.Repository;
 
 namespace LeBataillon.Web
 {
@@ -27,6 +28,8 @@ namespace LeBataillon.Web
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddDbContext<LeBataillonDbContext>(options => { options.UseSqlServer(Configuration.GetConnectionString("LeBataillonDbContext")); });
+
+            services.AddScoped<ILeBataillonRepo, LeBataillonRepo>();
 
 
         }

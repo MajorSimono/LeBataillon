@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace LeBataillon.Database.Models
 {
     public class Team
@@ -24,9 +26,18 @@ namespace LeBataillon.Database.Models
             this.CaptainId = t.CaptainId;
 
         }
+
+        [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Nom de l'équipe")]
+        [Required(ErrorMessage = "Nom de l'équipe requis")]
         public string TeamName { get; set; }
+
+        [Display(Name = "Capitain de l'équipe")]
+        [Required(ErrorMessage = "Capitain de l'équipe requis")]
         public int CaptainId { get; set; }
+        [Display(Name = "Capitain de l'équipe")]
 
         public virtual Player Captain { get; set; }
 

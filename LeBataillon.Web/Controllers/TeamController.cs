@@ -7,40 +7,38 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LeBataillon.Database.Context;
 using LeBataillon.Database.Models;
+using LeBataillon.Database.Repository;
+using LeBataillon.Database.Exceptions;
 
 namespace LeBataillon.Web.Controllers
 {
     public class TeamController : Controller
     {
-        private readonly LeBataillonDbContext _context;
+        private readonly ILeBataillonRepo _repo;
 
-        public TeamController(LeBataillonDbContext context)
+        public TeamController(ILeBataillonRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Team
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Teams.ToListAsync());
+            return View(_repo.GetAllTeams());
         }
 
         // GET: Team/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
-            if (id == null)
+            try
+            {
+                var team = this._repo.GetTeamById(id ?? 0);
+                return View(team);
+            }
+            catch (NotFoundException)
             {
                 return NotFound();
             }
-
-            var team = await _context.Teams
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (team == null)
-            {
-                return NotFound();
-            }
-
-            return View(team);
         }
 
         // GET: Team/Create
@@ -54,31 +52,37 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TeamName,Captain.Id")] Team team)
+        public IActionResult Create([Bind("Id,TeamName,Captain.Id")] Team team)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(team);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _repo.Add(team);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (LeBataillonRepoException e)
+                {
+
+                    this.ModelState.AddModelError(e.Property, e.Message);
+                }
             }
             return View(team);
         }
 
         // GET: Team/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
+                var team = this._repo.GetTeamById(id);
+                return View(team);
             }
+            catch (NotFoundException)
+            {
 
-            var team = await _context.Teams.FindAsync(id);
-            if (team == null)
-            {
                 return NotFound();
             }
-            return View(team);
         }
 
         // POST: Team/Edit/5
@@ -86,68 +90,65 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TeamName,Captain.Id")] Team team)
+        public IActionResult Edit(int id, [Bind("Id,TeamName,Captain.Id")] Team team)
         {
-            if (id != team.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(team);
-                    await _context.SaveChangesAsync();
+                    _repo.Edit(team);
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (NotFoundException)
                 {
-                    if (!TeamExists(team.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                catch (LeBataillonRepoException e)
+                {
+                    this.ModelState.AddModelError(e.Property, e.Message);
+                }
             }
             return View(team);
         }
 
         // GET: Team/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null)
+            try
             {
+                var team = this._repo.GetTeamById(id);
+                return View(team);
+            }
+            catch (NotFoundException)
+            {
+
                 return NotFound();
             }
-
-            var team = await _context.Teams
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (team == null)
-            {
-                return NotFound();
-            }
-
-            return View(team);
         }
 
         // POST: Team/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var team = await _context.Teams.FindAsync(id);
-            _context.Teams.Remove(team);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _repo.RemoveTeam(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (NotFoundException)
+            {
+
+                return NotFound();
+            }
+            catch (LeBataillonRepoException e)
+            {
+                this.ModelState.AddModelError(e.Property, e.Message);
+            }
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TeamExists(int id)
-        {
-            return _context.Teams.Any(e => e.Id == id);
-        }
+
     }
 }
