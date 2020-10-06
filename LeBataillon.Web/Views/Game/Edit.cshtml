@@ -28,6 +28,11 @@
                 <input asp-for="TeamAttackerId" class="form-control" />
                 <span asp-validation-for="TeamAttackerId" class="text-danger"></span>
             </div>
+              <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <select asp-for="status" asp-items="Html.GetEnumSelectList<LeBataillon.Database.Models.GameStatus>()" class="form-control" ></select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

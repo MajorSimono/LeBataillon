@@ -57,7 +57,7 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,NickName,Email,PhoneNumber,FirstName,LastName,Level")] Player player)
+        public IActionResult Create([Bind("Id,NickName,Email,PhoneNumber,FirstName,LastName,Level,TeamId")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,NickName,Email,PhoneNumber,FirstName,LastName,Level")] Player player)
+        public IActionResult Edit(int id, [Bind("Id,NickName,Email,PhoneNumber,FirstName,LastName,Level,TeamId")] Player player)
         {
 
             if (ModelState.IsValid)

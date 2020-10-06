@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LeBataillon.Database.Models
 {
@@ -40,6 +42,7 @@ namespace LeBataillon.Database.Models
         public string NickName { get; set; }
         [Display(Name = "Email du joueur ")]
         [Required(ErrorMessage = "Email requis")]
+        [MaxLength(50, ErrorMessage = "Maximum de 50 caractères pour le champ {0}.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -49,14 +52,21 @@ namespace LeBataillon.Database.Models
         public string PhoneNumber { get; set; }
         [Display(Name = "Prenom du joueur ")]
         [Required(ErrorMessage = "Prenom requis")]
+        [MaxLength(50, ErrorMessage = "Maximum de 50 caractères pour le champ {0}.")]
 
         public string FirstName { get; set; }
 
         [Display(Name = "Nom du joueur ")]
         [Required(ErrorMessage = "Nom requis")]
+        [MaxLength(50, ErrorMessage = "Maximum de 50 caractères pour le champ {0}.")]
         public string LastName { get; set; }
         [Display(Name = "level du joueur ")]
         public PlayerLevel Level { get; set; }
+
+        [Display(Name = "Team du joueur ")]
+        public int TeamId { get; set; }
+
+        public virtual Team Team { get; set; }
 
     }
 }

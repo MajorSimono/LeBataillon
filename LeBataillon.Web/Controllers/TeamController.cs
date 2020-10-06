@@ -52,7 +52,7 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,TeamName,Captain.Id")] Team team)
+        public IActionResult Create([Bind("Id,TeamName,Captain.Id,JoueurMaximum")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace LeBataillon.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,TeamName,Captain.Id")] Team team)
+        public IActionResult Edit(int id, [Bind("Id,TeamName,Captain.Id,JoueurMaximum")] Team team)
         {
 
             if (ModelState.IsValid)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LeBataillon.Database.Initializer.DataFixtures;
 using LeBataillon.Database.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace LeBataillon.Database.Context
 {
@@ -34,7 +35,9 @@ namespace LeBataillon.Database.Context
             {
 
                 var name = SampleData.GenerateName(i);
-                players.Add(new Player(i, $"{name}Alias", $"{name}@bataillonMail.com", SampleData.GeneratePhoneNumber(i), $"{name}", SampleData.GenerateLastName(i), SampleData.GenerateLevel()));
+                var player = new Player(i, $"{name}Alias", $"{name}@bataillonMail.com", SampleData.GeneratePhoneNumber(i), name, SampleData.GenerateLastName(i), SampleData.GenerateLevel());
+                player.TeamId = (i <= 10) ? i : SampleData.GenerateInteger(i, 1, 10);
+                players.Add(player);
             }
 
             modelBuilder.Entity<Player>().HasData(players);
@@ -42,32 +45,18 @@ namespace LeBataillon.Database.Context
             var teams = new List<Team>();
             for (int i = 1; i < 10; i++)
             {
-                teams.Add(new Team(i, SampleData.GenerateName(i + 1), i * 10));
+                var capitain = players.Where(p => p.TeamId == i).First();
 
+                var teamName = "Équipe de " + SampleData.GenerateName(i);
+                teams.Add(new Team(i, teamName, capitain.Id, 10));
             }
             modelBuilder.Entity<Team>().HasData(teams);
 
             var games = new List<Game>();
 
-            for (int i = 1; i < 50; i++)
-            {
-                var today = DateTime.Now;
-                var gameday = today.AddDays(i);
-                var nombre = i * 1000;
-                var equipe1 = SampleData.GenerateInteger(nombre + 9, 1, 9);
-                var equipe2 = SampleData.GenerateInteger(nombre + 9, 1, 9);
-                if (equipe1 == equipe2 && equipe2 != 9)
-                {
-                    equipe2 = equipe2 + 1;
-                }
-                else if (equipe1 == equipe2 && equipe2 == 9)
-                {
-                    equipe2 = equipe2 - 1;
-                }
-
-                games.Add(new Game(i, gameday, equipe1, equipe2));
-
-            }
+            games.Add(new Game(1, new DateTime(220, 10, 24), 1, 3, GameStatus.forthcoming));
+            games.Add(new Game(2, new DateTime(220, 10, 24), 4, 6, GameStatus.forthcoming));
+            games.Add(new Game(3, new DateTime(220, 10, 24), 7, 2, GameStatus.forthcoming));
             modelBuilder.Entity<Game>().HasData(games);
         }
     }
